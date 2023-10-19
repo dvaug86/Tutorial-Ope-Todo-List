@@ -16,9 +16,18 @@ const TodoWrapper = () => {
         task: todo,
         completed: false,
         isEditing: false,
-      },
+        
+      }
     ]); //'...' spreader function that makes a copy of the current state
     console.log(todos);
+  };
+
+  const toggleComplete = id => {
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   return (
@@ -26,7 +35,7 @@ const TodoWrapper = () => {
       <h1>Get things Done!</h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo, index) => (
-        <Todo task={todo} key={index} />
+        <Todo task={todo} key={index} toggleComplete={toggleComplete} />
       ))}
     </div>
   );
