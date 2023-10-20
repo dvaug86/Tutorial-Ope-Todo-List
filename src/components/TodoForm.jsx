@@ -19,7 +19,7 @@ const TodoForm = ({ addTodo }) => {
         onChange={(e) => setValue(e.target.value)}
       />
       <button type="submit" className="todo-btn">
-        Add task
+        Add Task
       </button>
     </form>
   );
